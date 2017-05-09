@@ -4,7 +4,7 @@ class user extends CI_Controller {
 
 
   public function novoUser(){
-    $usuarioLogado = autoriza();
+    $autoriza = autoriza();
     $this->load->model("user_model");
     $hierarquia = $this->user_model->buscaHierarquia();
     $dados = array("hierarquia" => $hierarquia);
@@ -12,6 +12,7 @@ class user extends CI_Controller {
   }
 
     public function novo() {
+        $autoriza = autoriza();
         $usuario = array(
             "nome" => $this->input->post("nome"),
             "email" => $this->input->post("email"),

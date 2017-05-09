@@ -1,27 +1,35 @@
 
 
-<div style="padding-bottom: 120px;" class="container">
+<div  class="container">
 
-<h1>Receita</h1>
+  <h1>Receita</h1>
   <div class="row">
 
-    <div class="panel panel-success col-md-4 col-lg-4">
-      <div class="panel-heading">Valor Total Pagamentos</div>
-      <div id="valorDepositoResultado" class="panel-body">
-        R$ 0.00
+    <div class="col-md-4 col-lg-4">
+      <div class="panel panel-success">
+        <div class="panel-heading">Valor Total Pagamentos</div>
+        <div id="valorDepositoResultado" class="panel-body">
+          R$ 0.00
+        </div>
       </div>
     </div>
 
-    <div class="panel panel-danger col-md-4 col-lg-">
-      <div class="panel-heading">Valor Total Despesas</div>
-      <div id="valorDespesaResultado" class="panel-body">
-        R$ 0.00
+    <div class="col-md-4 col-lg-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">Valor Total Despesas</div>
+        <div id="valorDespesaResultado" class="panel-body">
+          R$ 0.00
+        </div>
       </div>
     </div>
-    <div class="panel panel-primary col-md-4 col-lg-">
-      <div class="panel-heading">Balanço Mensal</div>
-      <div id="balanco" class="panel-body">
+
+
+    <div class="col-md-4 col-lg-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Balanço Mensal</div>
+        <div id="balanco" class="panel-body">
           R$ 0.00
+        </div>
       </div>
     </div>
 
@@ -91,7 +99,7 @@
 
 
     <h1>Todas as Despesas <?= $mesPesquisar ?></h1>
-    <div  class="table-responsive">
+    <div style="margin-bottom: 150px;" class="table-responsive">
       <table  class="table table-striped">
         <thead>
           <tr>

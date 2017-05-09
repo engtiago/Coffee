@@ -37,6 +37,13 @@ $('.dateMes').datepicker({
   autoclose:"true",
 });
 
+$('.dateAno').datepicker({
+  format: 'yyyy',
+  language:'pt-BR',
+  minViewMode: 'years',
+  autoclose:"true",
+});
+
 $('.dataPgm').datepicker({
   format: 'dd/mm/yyyy',
   language:'pt-BR',

@@ -6,21 +6,27 @@ class valores extends CI_Controller {
 
 
   public function verDepositos(){
-    $user = $this->session->userdata("usuario_logado");
+    $user = autoriza();
     $this->load->model("valores_model");
+    $anoPesquisar =  $this->input->post("anoPesquisar");
+    $balanco =  $this->valores_model->consulaBalancoAno($anoPesquisar);
+
     $depositos =  $this->valores_model->verDepositos($user['idUser']);
-    $dados = array("depositos" => $depositos);
+
+    $this->load->library('calendar');
+    $dados = array(
+      "balanco" => $balanco,
+      "depositos" => $depositos,
+      "anoPesquisar" =>$anoPesquisar
+    );
     $this->load->template("valores/verDepositos.php",$dados);
+
+
   }
 
 
-
-
-
-
-
   public function despesa(){
-    $usuarioLogado = autoriza();
+    $autoriza = autoriza();
     $this->load->model("user_model");
     $users = $this->user_model->buscaUsers();
     $dados = array("users" => $users);
@@ -30,10 +36,8 @@ class valores extends CI_Controller {
 
 
 
-
-
   public function novaDespesa(){
-
+    $autoriza = autoriza();
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("motivo", "motivo", "required|max_length[255]");
     $this->form_validation->set_rules("valor", "valor", "required");
@@ -88,6 +92,11 @@ class valores extends CI_Controller {
 
 
   public function deposito(){
+    $autoriza = autoriza();
+    nivelAcesso(1,"home");
+    nivelAcesso(2,"home");
+    nivelAcesso(3,"home");
+
     $this->form_validation->set_rules("mesPagamento", "mesPagamento", "required|regex_match[/^\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("usuario", "usuario", "required");

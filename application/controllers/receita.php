@@ -4,9 +4,9 @@ class receita extends CI_Controller {
 
 
   public function index(){
-
+      $autoriza = autoriza();
       $mesPesquisar =  $this->input->post("mesPesquisar");
-      $user = $this->session->userdata("usuario_logado");
+    //$user = $this->session->userdata("usuario_logado");
       $this->load->model("receita_model");
       $depositos =  $this->receita_model->verTodosDepositos($mesPesquisar);
       $despesas =  $this->receita_model->verTodasDespesas($mesPesquisar);
