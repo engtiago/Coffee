@@ -51,6 +51,50 @@ $('.dataPgm').datepicker({
 });
 
 
+var uSelect = $( ".ususarioDD" ).val();
+$(".hierarquia").each(function () {
+  var id = $(this).attr('id');
+  var hierarquia = $(this).text();
+  if(uSelect ==id){
+    if(hierarquia ==1|hierarquia ==8){
+      $('#valor').val('ISENTO');
+    }else if(hierarquia ==2|hierarquia ==3){
+      $('#valor').val('15.00');
+    }else if(hierarquia ==4|hierarquia ==5){
+      $('#valor').val('10.00');
+    }else if(hierarquia ==6|hierarquia ==7){
+      $('#valor').val('5.00');
+    }
+  }
+});
+
+
+
+$(".ususarioDD").change(function(){
+  var uSelect = $(this).val();
+  $(".hierarquia").each(function () {
+    var id = $(this).attr('id');
+    var hierarquia = $(this).text();
+    if(uSelect ==id){
+      if(hierarquia ==1|hierarquia ==8){
+        $('#valor').val('ISENTO');
+      }else if(hierarquia ==2|hierarquia ==3){
+        $('#valor').val('15.00');
+      }else if(hierarquia ==4|hierarquia ==5){
+        $('#valor').val('10.00');
+      }else if(hierarquia ==6|hierarquia ==7){
+        $('#valor').val('5.00');
+      }
+    }
+  });
+});
+
+
+// $(".hierarquia").each(function () {
+// var id = $(this).attr('id');
+// var hierarquia = $(this).text();
+// });
+
 </script>
 </body>
 </html>

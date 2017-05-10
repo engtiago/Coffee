@@ -48,24 +48,25 @@
           echo form_input(array(
               "pattern"=>  "(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)",
               "required"=>"true",
-              "value"=>"5.00",
+              "value"=>"0.00",
               "type"=>"text" ,
               "name" => "valor",
               "id" => "valor",
               "class" => "form-control",
-              "disabled" =>""
+              "readonly"=>"readonly"
             ));
 
 
           foreach($users as $users){
             $options [ $users["idUser"] ] = $users["nome"];
           //  $hieraquiaUsers [ $users["idUser"] ] = $users["hierarquia_idHierarquia"];
-            echo "<i hidden value=".$users['idUser'].">".$users['hierarquia_idHierarquia']."</i>";
+            echo "<div hidden class='hierarquia' id=".$users['idUser'].">".$users['hierarquia_idHierarquia']."</div>";
           }
           echo form_label("Pagamento do:", "usuario");
           echo form_dropdown('usuario', $options, "",array(
               "required"=>"true",
-            "class" => "form-control",
+              "class" => "form-control ususarioDD",
+
 
           ));
 

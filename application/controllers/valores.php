@@ -102,7 +102,7 @@ class valores extends CI_Controller {
     $this->form_validation->set_rules("mesPagamento", "mesPagamento", "required|regex_match[/^\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("usuario", "usuario", "required");
-    $this->form_validation->set_rules("valor", "valor", "required");
+    $this->form_validation->set_rules("valor", "valor", "required|numeric");
     $sucesso = $this->form_validation->run();
     if ($sucesso) {
 
