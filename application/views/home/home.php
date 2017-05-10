@@ -46,25 +46,27 @@
 
           echo form_label("Valor", "valor");
           echo form_input(array(
-            "pattern"=>  "(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)",
-            "required"=>"true",
-            "placeholder"=>"R$ 0,00",
-            "type"=>"text" ,
-            "name" => "valor",
-            "id" => "valor",
-            "class" => "form-control",
-          ));
-
+              "pattern"=>  "(0\.((0[1-9]{1})|([1-9]{1}([0-9]{1})?)))|(([1-9]+[0-9]*)(\.([0-9]{1,2}))?)",
+              "required"=>"true",
+              "value"=>"5.00",
+              "type"=>"text" ,
+              "name" => "valor",
+              "id" => "valor",
+              "class" => "form-control",
+              "disabled" =>""
+            ));
 
 
           foreach($users as $users){
             $options [ $users["idUser"] ] = $users["nome"];
-            //print_r($option);
+          //  $hieraquiaUsers [ $users["idUser"] ] = $users["hierarquia_idHierarquia"];
+            echo "<i hidden value=".$users['idUser'].">".$users['hierarquia_idHierarquia']."</i>";
           }
           echo form_label("Pagamento do:", "usuario");
           echo form_dropdown('usuario', $options, "",array(
               "required"=>"true",
-            "class" => "form-control"
+            "class" => "form-control",
+
           ));
 
 
@@ -79,6 +81,7 @@
           echo form_close();
 
           ?>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

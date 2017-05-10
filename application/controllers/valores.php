@@ -93,9 +93,11 @@ class valores extends CI_Controller {
 
   public function deposito(){
     $autoriza = autoriza();
-    nivelAcesso(1,"home");
-    nivelAcesso(2,"home");
-    nivelAcesso(3,"home");
+    nivelAcesso(4,"home");
+    nivelAcesso(5,"home");
+    nivelAcesso(6,"home");
+    nivelAcesso(7,"home");
+    nivelAcesso(8,"home");
 
     $this->form_validation->set_rules("mesPagamento", "mesPagamento", "required|regex_match[/^\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");

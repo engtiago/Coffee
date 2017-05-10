@@ -4,6 +4,10 @@ class user extends CI_Controller {
 
 
   public function novoUser(){
+    nivelAcesso(6,"home");
+    nivelAcesso(7,"home");
+    nivelAcesso(8,"home");
+
     $autoriza = autoriza();
     $this->load->model("user_model");
     $hierarquia = $this->user_model->buscaHierarquia();
@@ -12,6 +16,7 @@ class user extends CI_Controller {
   }
 
     public function novo() {
+
         $autoriza = autoriza();
         $usuario = array(
             "nome" => $this->input->post("nome"),
