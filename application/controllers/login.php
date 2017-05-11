@@ -12,7 +12,7 @@ class Login extends CI_Controller {
     }
   }
 
-  public function autenticar() {
+  public function Autenticar() {
     $this->form_validation->set_rules("email", "email", "required");
     $this->form_validation->set_rules("senha", "senha", "required");
 
@@ -31,7 +31,7 @@ class Login extends CI_Controller {
   }
 
 
-  public function logout(){
+  public function Logout(){
     $this->session->unset_userdata("usuario_logado");
     $this->session->set_flashdata("success" ,"Deslogado com sucesso");
     redirect("/");

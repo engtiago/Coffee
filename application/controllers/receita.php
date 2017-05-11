@@ -17,7 +17,7 @@ class Receita extends CI_Controller {
       "depositos" => $depositos,
       "despesas" => $despesas
     );
-    $this->load->template("Receita/Receita.php",$dados);
+    $this->load->template("receita/receita.php",$dados);
 
   }
 

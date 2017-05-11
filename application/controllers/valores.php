@@ -19,7 +19,7 @@ class Valores extends CI_Controller {
       "depositos" => $depositos,
       "anoPesquisar" =>$anoPesquisar
     );
-    $this->load->template("Valores/verdepositos.php",$dados);
+    $this->load->template("valores/verdepositos.php",$dados);
 
 
   }
@@ -37,7 +37,7 @@ class Valores extends CI_Controller {
     $this->load->model("User_model");
     $users = $this->User_model->buscaUsers();
     $dados = array("users" => $users);
-    $this->load->template("Valores/despesas.php",$dados);
+    $this->load->template("valores/despesas.php",$dados);
   }
 
 

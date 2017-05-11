@@ -13,7 +13,7 @@
           <h3 class="panel-title">Faça seu login</h3>
         </div>
         <div class="panel-body">
-          <?php  echo form_open("login/autenticar");?>
+          <?php  echo form_open("Login/Autenticar");?>
           <fieldset>
             <div class="form-group">
 

@@ -30,13 +30,13 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?=html_escape($user["nome"])?> <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li>  <?= anchor('user/novouser','<i class="material-icons" style="font-size:19";">person_add</i>Novo Usuario ')?></li>
+              <li>  <?= anchor('/User/novouser','<i class="material-icons" style="font-size:19";">person_add</i>Novo Usuario ')?></li>
               <li>  <?= anchor('/user','<i class="material-icons" style="font-size:19";">person</i>Usuarios')?></li>
               <li>  <?= anchor('/Valores/despesa','<i class="material-icons" style="font-size:19";">money_off</i>Nova despesa')?></li>
               <li>  <?= anchor('/Valores/verdepositos','<i class="material-icons" style="font-size:19";">monetization_on</i>Situação Financeira')?></li>
               <li>  <?= anchor('/Receita','<i class="material-icons" style="font-size:19";">assessment</i>Receitas')?></li>
               <li role="separator" class="divider"></li>
-              <li><?= anchor('login/logout','<i class="material-icons" style="font-size:19";">power_settings_new</i>Sair')?></li>
+              <li><?= anchor('Login/Logout','<i class="material-icons" style="font-size:19";">power_settings_new</i>Sair')?></li>
             </ul>
           </li>
 
