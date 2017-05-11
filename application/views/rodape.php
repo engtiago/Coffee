@@ -8,7 +8,7 @@ height: 100px;"
 
 class="footer">
 <div class="container">
-  <p style="color:#fff; padding-top: 10px" class="text-muted">Coffee ® - Desenvolvido por Tiago França Ferreira</p>
+  <p style="color:#fff; padding-top: 10px" class="text-muted">Coffee ® - Desenvolvido por Tiago França Ferreira   <a href="https://github.com/engtiago/Coffee" style="color:#fff; padding-top: 10px" class="text-muted"><i style="font-size:16px;"class="material-icons">cloud</i>Ver Projeto</a></p>
   <a href="http://tiagoweb.tk/" style="color:#fff; padding-top: 10px" class="text-muted"> <i style="font-size:16px;"class="material-icons">desktop_windows</i>  tiagoweb.tk</a>
   <p  style="color:#fff; padding-top: 10px" class="text-muted"> <i style="font-size:16px;"class="material-icons">smartphone</i> +55 91 98894-2400</p>
 </div>

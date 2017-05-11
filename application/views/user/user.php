@@ -11,7 +11,7 @@
             <?php foreach($user as $user) : ?>
 
               <tr>
-                <td><?= anchor("user/edituser/{$user['idUser']}", html_escape($user["nome"]))?></td>
+                <td><?= anchor("user/ver/{$user['idUser']}", html_escape($user["nome"]))?></td>
                 <td><?= html_escape($user["email"])?> </td>
                 <td><?php if($user["inativo"]==0){echo "Ativo";}else{echo "Desativo";} ?></td>
               </tr>

@@ -13,12 +13,9 @@ class Login extends CI_Controller {
   }
 
   public function autenticar() {
-      nivelAcesso(8,"");
     $this->form_validation->set_rules("email", "email", "required");
     $this->form_validation->set_rules("senha", "senha", "required");
-    //Seta o que vem antes e depois do echo form_error("x");
-    $this->form_validation->set_error_delimiters("<p class='alert alert-danger', </p>");
-    $sucesso = $this->form_validation->run();
+
 
     $this->load->model("user_model");
     $email = $this->input->post("email");

@@ -2,16 +2,17 @@
 
 class user extends CI_Controller {
   public function index(){
-  $autoriza = autoriza();
-  $this->load->model("user_model");
-  $user = $this->user_model->buscaUsers();
-  $dados = array(
-    "user" => $user,
-  );
-  $this->load->template("user/user.php", $dados);
-}
+    $autoriza = autoriza();
+    $this->load->model("user_model");
+    $user = $this->user_model->buscaUsers();
+    $dados = array(
+      "user" => $user,
+    );
+    $this->load->template("user/user.php", $dados);
+  }
 
   public function novoUser(){
+    $autoriza = autoriza();
     nivelAcesso(6,"home");
     nivelAcesso(7,"home");
     nivelAcesso(8,"home");
@@ -53,16 +54,34 @@ class user extends CI_Controller {
 
   }
 
-  public function verEdit($id) {
-      nivelAcesso(6,"home");
-      nivelAcesso(7,"home");
-      nivelAcesso(8,"home");
+  public function ver($id) {
+    $autoriza = autoriza();
+    nivelAcesso(6,"user");
+    nivelAcesso(7,"user");
+    nivelAcesso(8,"user");
 
-      $autoriza = autoriza();
-      $this->load->model("user_model");
-      $hierarquia = $this->user_model->buscaHierarquia();
-      $dados = array("hierarquia" => $hierarquia);
-      $this->load->template("user/novoUser.php", $dados);
-
+    $this->load->model("user_model");
+    $hierarquia = $this->user_model->buscaHierarquia();
+    $user = $this->user_model->busca($id);
+    $dados = array(
+      "hierarquia" => $hierarquia,
+      "user" => $user,
+    );
+    $this->load->template("user/editUser.php", $dados);
   }
+  
+  public function editUser(){
+    $autoriza = autoriza();
+    $data = array(
+      'nome' => $this->input->post("nome"),
+      'email' => $this->input->post("email"),
+      'hierarquia_idHierarquia' =>  $this->input->post("hierarquia"),
+      'inativo' => $this->input->post("ativo")
+    );
+    $this->load->model("user_model");
+    $this->user_model->editUser($this->input->post("id"),$data);
+    $this->session->set_flashdata("success", "Usuario modificado com sucesso");
+    redirect("/user/ver/".$this->input->post('id')."");
+  }
+
 }

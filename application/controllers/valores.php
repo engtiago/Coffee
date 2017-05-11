@@ -27,6 +27,13 @@ class valores extends CI_Controller {
 
   public function despesa(){
     $autoriza = autoriza();
+    nivelAcesso(2,"home");
+    nivelAcesso(3,"home");
+    nivelAcesso(4,"home");
+    nivelAcesso(5,"home");
+    nivelAcesso(6,"home");
+    nivelAcesso(7,"home");
+    nivelAcesso(8,"home");
     $this->load->model("user_model");
     $users = $this->user_model->buscaUsers();
     $dados = array("users" => $users);
@@ -38,6 +45,13 @@ class valores extends CI_Controller {
 
   public function novaDespesa(){
     $autoriza = autoriza();
+    nivelAcesso(2,"home");
+    nivelAcesso(3,"home");
+    nivelAcesso(4,"home");
+    nivelAcesso(5,"home");
+    nivelAcesso(6,"home");
+    nivelAcesso(7,"home");
+    nivelAcesso(8,"home");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("motivo", "motivo", "required|max_length[255]");
     $this->form_validation->set_rules("valor", "valor", "required");

@@ -5,10 +5,10 @@ class user_model extends CI_Model {
   }
 
   public function buscaPorEmailESenha($email, $senha) {
-      $this->db->where("email", $email);
-      $this->db->where("senha", $senha);
-      $usuario = $this->db->get("user")->row_array();
-      return $usuario;
+    $this->db->where("email", $email);
+    $this->db->where("senha", $senha);
+    $usuario = $this->db->get("user")->row_array();
+    return $usuario;
   }
 
   public function busca($id) {
@@ -16,11 +16,16 @@ class user_model extends CI_Model {
   }
 
   public function buscaHierarquia(){
-      return $this->db->get("hierarquia")->result_array();
+    return $this->db->get("hierarquia")->result_array();
   }
-  
+
   public function buscaUsers(){
-      return $this->db->get("user")->result_array();
+    return $this->db->get("user")->result_array();
+  }
+
+  public function editUser($id,$data){
+    $this->db->where('idUser', $id);
+    $this->db->update('user', $data);
   }
 
 }

@@ -64,7 +64,10 @@
     "class" => "btn btn-primary",
     "content" => "Realizar deposito",
     "type" => "submit",
-    "value"=> "upload"
+    "value"=> "upload",
+    "style"=> "width: 170px;
+    margin-top: 15px;
+    float: right;"
   ));
   echo "</div>";
   echo form_close();
