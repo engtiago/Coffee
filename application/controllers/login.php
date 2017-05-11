@@ -6,7 +6,7 @@ class Login extends CI_Controller {
   public function index(){
     if($this->session->userdata("usuario_logado")){
       //$this->load->template("home/home.php");
-      redirect("/home");
+      redirect("/Home");
     }else{
       $this->load->template("login/index.php");
     }
@@ -17,10 +17,10 @@ class Login extends CI_Controller {
     $this->form_validation->set_rules("senha", "senha", "required");
 
 
-    $this->load->model("user_model");
+    $this->load->model("User_model");
     $email = $this->input->post("email");
     $senha = md5($this->input->post("senha"));
-    $usuario = $this->user_model->buscaPorEmailESenha($email, $senha);
+    $usuario = $this->User_model->buscaPorEmailESenha($email, $senha);
     if($usuario) {
       $this->session->set_userdata("usuario_logado" , $usuario);
       $this->session->set_flashdata("success" ,"Logado com sucesso");

@@ -1,7 +1,7 @@
 
 <div style="mar"  class="container">
   <?php
-  echo form_open("valores/verDepositos",array());
+  echo form_open("Valores/verdepositos",array());
   echo form_label("Pesquisar Ano", "ano");
   echo "<div class='form-group'>";
   echo "<div class='row'>";

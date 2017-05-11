@@ -1,5 +1,5 @@
 <?php
-class user_model extends CI_Model {
+class User_model extends CI_Model {
   public function salva($usuario) {
     $this->db->insert("user", $usuario);
   }
@@ -23,7 +23,7 @@ class user_model extends CI_Model {
     return $this->db->get("user")->result_array();
   }
 
-  public function editUser($id,$data){
+  public function edituser($id,$data){
     $this->db->where('idUser', $id);
     $this->db->update('user', $data);
   }

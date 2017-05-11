@@ -20,9 +20,9 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li>
-            <?= anchor('/home','Home')?>
+            <?= anchor('/Home','Home')?>
           </li>
-        
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -32,9 +32,9 @@
             <ul class="dropdown-menu">
               <li>  <?= anchor('user/novouser','<i class="material-icons" style="font-size:19";">person_add</i>Novo Usuario ')?></li>
               <li>  <?= anchor('/user','<i class="material-icons" style="font-size:19";">person</i>Usuarios')?></li>
-              <li>  <?= anchor('/valores/despesa','<i class="material-icons" style="font-size:19";">money_off</i>Nova despesa')?></li>
-              <li>  <?= anchor('/valores/verDepositos','<i class="material-icons" style="font-size:19";">monetization_on</i>Situação Financeira')?></li>
-              <li>  <?= anchor('/receita','<i class="material-icons" style="font-size:19";">assessment</i>Receitas')?></li>
+              <li>  <?= anchor('/Valores/despesa','<i class="material-icons" style="font-size:19";">money_off</i>Nova despesa')?></li>
+              <li>  <?= anchor('/Valores/verdepositos','<i class="material-icons" style="font-size:19";">monetization_on</i>Situação Financeira')?></li>
+              <li>  <?= anchor('/Receita','<i class="material-icons" style="font-size:19";">assessment</i>Receitas')?></li>
               <li role="separator" class="divider"></li>
               <li><?= anchor('login/logout','<i class="material-icons" style="font-size:19";">power_settings_new</i>Sair')?></li>
             </ul>

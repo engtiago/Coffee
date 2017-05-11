@@ -1,17 +1,17 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class valores extends CI_Controller {
+class Valores extends CI_Controller {
 
 
 
 
-  public function verDepositos(){
+  public function verdepositos(){
     $user = autoriza();
-    $this->load->model("valores_model");
+    $this->load->model("Valores_model");
     $anoPesquisar =  $this->input->post("anoPesquisar");
-    $balanco =  $this->valores_model->consulaBalancoAno($anoPesquisar);
+    $balanco =  $this->Valores_model->consulaBalancoAno($anoPesquisar);
 
-    $depositos =  $this->valores_model->verDepositos($user['idUser']);
+    $depositos =  $this->Valores_model->verdepositos($user['idUser']);
 
     $this->load->library('calendar');
     $dados = array(
@@ -19,7 +19,7 @@ class valores extends CI_Controller {
       "depositos" => $depositos,
       "anoPesquisar" =>$anoPesquisar
     );
-    $this->load->template("valores/verDepositos.php",$dados);
+    $this->load->template("Valores/verdepositos.php",$dados);
 
 
   }
@@ -27,17 +27,17 @@ class valores extends CI_Controller {
 
   public function despesa(){
     $autoriza = autoriza();
-    nivelAcesso(2,"home");
-    nivelAcesso(3,"home");
-    nivelAcesso(4,"home");
-    nivelAcesso(5,"home");
-    nivelAcesso(6,"home");
-    nivelAcesso(7,"home");
-    nivelAcesso(8,"home");
-    $this->load->model("user_model");
-    $users = $this->user_model->buscaUsers();
+    nivelAcesso(2,"Home");
+    nivelAcesso(3,"Home");
+    nivelAcesso(4,"Home");
+    nivelAcesso(5,"Home");
+    nivelAcesso(6,"Home");
+    nivelAcesso(7,"Home");
+    nivelAcesso(8,"Home");
+    $this->load->model("User_model");
+    $users = $this->User_model->buscaUsers();
     $dados = array("users" => $users);
-    $this->load->template("valores/despesas.php",$dados);
+    $this->load->template("Valores/despesas.php",$dados);
   }
 
 
@@ -45,13 +45,13 @@ class valores extends CI_Controller {
 
   public function novaDespesa(){
     $autoriza = autoriza();
-    nivelAcesso(2,"home");
-    nivelAcesso(3,"home");
-    nivelAcesso(4,"home");
-    nivelAcesso(5,"home");
-    nivelAcesso(6,"home");
-    nivelAcesso(7,"home");
-    nivelAcesso(8,"home");
+    nivelAcesso(2,"Home");
+    nivelAcesso(3,"Home");
+    nivelAcesso(4,"Home");
+    nivelAcesso(5,"Home");
+    nivelAcesso(6,"Home");
+    nivelAcesso(7,"Home");
+    nivelAcesso(8,"Home");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("motivo", "motivo", "required|max_length[255]");
     $this->form_validation->set_rules("valor", "valor", "required");
@@ -68,7 +68,7 @@ class valores extends CI_Controller {
       );
       $this->load->library('upload',$config);
 
-      $this->load->model("valores_model");
+      $this->load->model("Valores_model");
       if($this->upload->do_upload('img')){
 
         $despesa = array(
@@ -78,7 +78,7 @@ class valores extends CI_Controller {
           "user_idUser" => $this->input->post("usuario"),
           "img" => $this->upload->file_name
         );
-        $this->valores_model->despesa($despesa);
+        $this->Valores_model->despesa($despesa);
         $this->session->set_flashdata("success", "Despesa cadastrada com sucesso");
 
       }else{
@@ -90,14 +90,14 @@ class valores extends CI_Controller {
           "user_idUser" => $this->input->post("usuario"),
           "img" => "null.png"
         );
-        $this->valores_model->despesa($despesa);
+        $this->Valores_model->despesa($despesa);
         $this->session->set_flashdata("success", "Despesa cadastrada com sucesso - Sem comprovante");
       }
-      redirect("/home");
+      redirect("/Home");
 
     }else{
       $this->session->set_flashdata("danger", "Erro no cadastro da despesa");
-      redirect("/home");;
+      redirect("/Home");;
     }
   }//fim deposito
 
@@ -107,11 +107,11 @@ class valores extends CI_Controller {
 
   public function deposito(){
     $autoriza = autoriza();
-    nivelAcesso(4,"home");
-    nivelAcesso(5,"home");
-    nivelAcesso(6,"home");
-    nivelAcesso(7,"home");
-    nivelAcesso(8,"home");
+    nivelAcesso(4,"Home");
+    nivelAcesso(5,"Home");
+    nivelAcesso(6,"Home");
+    nivelAcesso(7,"Home");
+    nivelAcesso(8,"Home");
 
     $this->form_validation->set_rules("mesPagamento", "mesPagamento", "required|regex_match[/^\d{2}\/\d{4}/]");
     $this->form_validation->set_rules("data", "data", "required|regex_match[/^\d{2}\/\d{2}\/\d{4}/]");
@@ -127,13 +127,13 @@ class valores extends CI_Controller {
         "valor" => $this->input->post("valor")
 
       );
-      $this->load->model("valores_model");
-      $this->valores_model->deposita($deposito);
+      $this->load->model("Valores_model");
+      $this->Valores_model->deposita($deposito);
       $this->session->set_flashdata("success", "Deposito realizado com sucesso");
     }else{
       $this->session->set_flashdata("danger", "Erro no Deposito");
     }
-    redirect("/home");
+    redirect("/Home");
   }//fim deposito
 
 

@@ -1,15 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 $mesAno ="";
-class receita extends CI_Controller {
+class Receita extends CI_Controller {
 
 
   public function index(){
       $autoriza = autoriza();
       $mesPesquisar =  $this->input->post("mesPesquisar");
     //$user = $this->session->userdata("usuario_logado");
-      $this->load->model("receita_model");
-      $depositos =  $this->receita_model->verTodosDepositos($mesPesquisar);
-      $despesas =  $this->receita_model->verTodasDespesas($mesPesquisar);
+      $this->load->model("Receita_model");
+      $depositos =  $this->Receita_model->verTodosDepositos($mesPesquisar);
+      $despesas =  $this->Receita_model->verTodasDespesas($mesPesquisar);
 
 
     $dados = array(
@@ -17,7 +17,7 @@ class receita extends CI_Controller {
       "depositos" => $depositos,
       "despesas" => $despesas
     );
-    $this->load->template("receita/receita.php",$dados);
+    $this->load->template("Receita/Receita.php",$dados);
 
   }
 

@@ -17,19 +17,19 @@
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <a href="<?=site_url('/valores/despesa')?>" style="" class="btn btn-danger btn-lg ">
+          <a href="<?=site_url('/Valores/despesa')?>" style="" class="btn btn-danger btn-lg ">
             <i class="material-icons" style="font-size:40";>money_off</i>Nova Despesa
           </a>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <a href="<?=site_url('/valores/verDepositos')?>" style="" class="btn btn-primary btn-lg ">
+          <a href="<?=site_url('/Valores/verdepositos')?>" style="" class="btn btn-primary btn-lg ">
             <i class="material-icons" style="font-size:40";>monetization_on</i>Situação Financeira
           </a>
     </div>
 
     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <a href="<?=site_url('/receita')?>" style="" class="btn btn-warning btn-lg ">
+          <a href="<?=site_url('/Receita')?>" style="" class="btn btn-warning btn-lg ">
           <i class="material-icons" style="font-size:40";>assessment</i>Receitas
           </a>
     </div>
@@ -48,7 +48,7 @@
         </div>
         <div class="modal-body">
           <?php
-          echo form_open("valores/deposito",array());
+          echo form_open("Valores/deposito",array());
           echo "<div class='form-group'>";
 
 

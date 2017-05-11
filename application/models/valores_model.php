@@ -1,5 +1,5 @@
 <?php
-class valores_model extends CI_Model {
+class Valores_model extends CI_Model {
 
 
   public function deposita($deposito) {
@@ -10,7 +10,7 @@ class valores_model extends CI_Model {
     $this->db->insert("despesas", $despesa);
   }
 
-  public function verDepositos($userId){
+  public function verdepositos($userId){
     $this->db->select('mesPagamento,data,valor');
     $this->db->from('pagamentos');
     $this->db->where('user_idUser', $userId);

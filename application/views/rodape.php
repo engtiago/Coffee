@@ -21,7 +21,7 @@ class="footer">
 <script src="<?= base_url("public/bootstrap/js/bootstrap.js") ?>"></script>
 <script src="<?= base_url("public/datepicker/js/bootstrap-datepicker.min.js") ?>"></script>
 <script src="<?= base_url("public/datepicker/locales/bootstrap-datepicker.pt-BR.min.js") ?>"></script>
-<script src="<?= base_url("public/receita.js") ?>"></script>
+<script src="<?= base_url("public/Receita.js") ?>"></script>
 
 
 

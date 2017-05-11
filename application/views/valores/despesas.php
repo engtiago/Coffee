@@ -1,6 +1,6 @@
 <div class="container">
   <?php
-  echo form_open_multipart("valores/novaDespesa",array(
+  echo form_open_multipart("Valores/novaDespesa",array(
 
   ));
   echo "<div class='form-group'>";

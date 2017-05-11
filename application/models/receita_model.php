@@ -1,5 +1,5 @@
 <?php
-class receita_model extends CI_Model {
+class Receita_model extends CI_Model {
   public function verTodosDepositos($mesAno){
     $this->db->select('p.mesPagamento,p.data,p.valor, u.nome');
     $this->db->from('pagamentos p');

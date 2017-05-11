@@ -37,7 +37,7 @@
 
 
   <?php
-  echo form_open("receita",array());
+  echo form_open("Receita",array());
   echo form_label("Mes Pagamento", "mes");
   echo "<div class='form-group'>";
   echo "<div class='row'>";

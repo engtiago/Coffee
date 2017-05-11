@@ -6,7 +6,7 @@
 
 
   <?php
-  echo form_open("user/editUser");
+  echo form_open("user/edituser");
 
   echo form_hidden("id", $user["idUser"]);
 

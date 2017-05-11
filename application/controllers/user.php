@@ -1,27 +1,27 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class user extends CI_Controller {
+class User extends CI_Controller {
   public function index(){
     $autoriza = autoriza();
-    $this->load->model("user_model");
-    $user = $this->user_model->buscaUsers();
+    $this->load->model("User_model");
+    $user = $this->User_model->buscaUsers();
     $dados = array(
       "user" => $user,
     );
     $this->load->template("user/user.php", $dados);
   }
 
-  public function novoUser(){
+  public function novouser(){
     $autoriza = autoriza();
-    nivelAcesso(6,"home");
-    nivelAcesso(7,"home");
-    nivelAcesso(8,"home");
+    nivelAcesso(6,"Home");
+    nivelAcesso(7,"Home");
+    nivelAcesso(8,"Home");
 
     $autoriza = autoriza();
-    $this->load->model("user_model");
-    $hierarquia = $this->user_model->buscaHierarquia();
+    $this->load->model("User_model");
+    $hierarquia = $this->User_model->buscaHierarquia();
     $dados = array("hierarquia" => $hierarquia);
-    $this->load->template("user/novoUser.php", $dados);
+    $this->load->template("user/novouser.php", $dados);
   }
 
   public function novo() {
@@ -40,16 +40,16 @@ class user extends CI_Controller {
         "hierarquia_idhierarquia" => $this->input->post("hierarquia")
       );
 
-      $this->load->model("user_model");
-      $this->user_model->salva($usuario);
+      $this->load->model("User_model");
+      $this->User_model->salva($usuario);
       $this->session->set_flashdata("success", "Usuario cadastrado com sucesso");
       redirect("/home");
     }else {
       $this->session->set_flashdata("danger", "Erro ao cadastrar usuario");
-      $this->load->model("user_model");
-      $hierarquia = $this->user_model->buscaHierarquia();
+      $this->load->model("User_model");
+      $hierarquia = $this->User_model->buscaHierarquia();
       $dados = array("hierarquia" => $hierarquia);
-      $this->load->template("user/novoUser.php", $dados);
+      $this->load->template("user/novouser.php", $dados);
     }
 
   }
@@ -60,17 +60,17 @@ class user extends CI_Controller {
     nivelAcesso(7,"user");
     nivelAcesso(8,"user");
 
-    $this->load->model("user_model");
-    $hierarquia = $this->user_model->buscaHierarquia();
-    $user = $this->user_model->busca($id);
+    $this->load->model("User_model");
+    $hierarquia = $this->User_model->buscaHierarquia();
+    $user = $this->User_model->busca($id);
     $dados = array(
       "hierarquia" => $hierarquia,
       "user" => $user,
     );
-    $this->load->template("user/editUser.php", $dados);
+    $this->load->template("user/edituser.php", $dados);
   }
-  
-  public function editUser(){
+
+  public function edituser(){
     $autoriza = autoriza();
     $data = array(
       'nome' => $this->input->post("nome"),
@@ -78,8 +78,8 @@ class user extends CI_Controller {
       'hierarquia_idHierarquia' =>  $this->input->post("hierarquia"),
       'inativo' => $this->input->post("ativo")
     );
-    $this->load->model("user_model");
-    $this->user_model->editUser($this->input->post("id"),$data);
+    $this->load->model("User_model");
+    $this->User_model->edituser($this->input->post("id"),$data);
     $this->session->set_flashdata("success", "Usuario modificado com sucesso");
     redirect("/user/ver/".$this->input->post('id')."");
   }
